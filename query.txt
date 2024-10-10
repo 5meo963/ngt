@@ -1,6 +1,6 @@
 #python
 from pymongo import MongoClient
-Client = MongoClient
+Client = MongoClient(" ")
 
 db = Client.pydata
 # CREATE Operation
