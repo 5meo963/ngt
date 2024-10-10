@@ -1,0 +1,384 @@
+#multiplication table
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Multiplication Table Generator</h1>
+    <label for="number">Enter a number:</label>
+    <input type="number" id="number" required>
+    <br><br>
+    <button id="submit">Display Table</button>
+
+    <div id="result"></div>
+
+    <script>
+        $(document).ready(function() {
+            $('#submit').click(function() {
+                // Get the value of the number from the input field
+                var number = parseInt($('#number').val());
+                var result = '';
+
+                // Check if the input is a valid number
+                if (!isNaN(number)) {
+                    result += '<h3>Multiplication Table of ' + number + ':</h3>';
+                    for (var i = 1; i <= 10; i++) {
+                        result += number + ' x ' + i + ' = ' + (number * i) + '<br>';
+                    }
+                } else {
+                    result = 'Please enter a valid number.';
+                }
+
+                // Display the result
+                $('#result').html(result);
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+#numberrange
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Range Display</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Display Numbers Between Two Values</h1>
+    <label for="m">Enter the first number (m):</label>
+    <input type="number" id="m" required>
+    <br><br>
+    <label for="n">Enter the second number (n):</label>
+    <input type="number" id="n" required>
+    <br><br>
+    <button id="submit">Display Numbers</button>
+
+    <div id="result"></div>
+
+    <script>
+        $(document).ready(function() {
+            $('#submit').click(function() {
+                // Get the values of m and n
+                var m = parseInt($('#m').val());
+                var n = parseInt($('#n').val());
+                var result = '';
+
+                // Check if m is smaller than n
+                if (m < n) {
+                    result += '<h3>Numbers between ' + m + ' and ' + n + ':</h3>';
+                    for (var i = m + 1; i < n; i++) {
+                        result += i + '<br>';
+                    }
+                } else {
+                    result = 'Please ensure that the first number (m) is smaller than the second number (n).';
+                }
+
+                // Display the result
+                $('#result').html(result);
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+#slidedowndt
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date and Time (slideDown)</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #dateTime {
+            display: none;
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="showDateTime">Show Current Date and Time</button>
+
+    <div id="dateTime"></div>
+
+    <script>
+        $(document).ready(function() {
+            $("#showDateTime").click(function() {
+                let currentDateTime = new Date();
+                let formattedDateTime = currentDateTime.toLocaleString();
+                
+                $("#dateTime").text("Current Date and Time: " + formattedDateTime).slideDown();
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+#accept 2 numbers alert
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of Two Numbers (Alert)</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <label>Number 1: </label>
+    <input type="number" id="num1"><br><br>
+
+    <label>Number 2: </label>
+    <input type="number" id="num2"><br><br>
+
+    <button id="calculateSum">Calculate Sum</button>
+
+    <script>
+        $(document).ready(function() {
+            $("#calculateSum").click(function() {
+                let num1 = parseFloat($("#num1").val());
+                let num2 = parseFloat($("#num2").val());
+                let sum = num1 + num2;
+                alert("The sum is: " + sum);
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+#accept 2 numbers slide down
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of Two Numbers (slideDown)</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #result {
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <label>Number 1: </label>
+    <input type="number" id="num1"><br><br>
+
+    <label>Number 2: </label>
+    <input type="number" id="num2"><br><br>
+
+    <button id="calculateSum">Calculate Sum</button>
+
+    <div id="result"></div>
+
+    <script>
+        $(document).ready(function() {
+            $("#calculateSum").click(function() {
+                let num1 = parseFloat($("#num1").val());
+                let num2 = parseFloat($("#num2").val());
+                let sum = num1 + num2;
+                
+                $("#result").text("The sum is: " + sum).slideDown();
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+#dtalert
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert Date and Time</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <button id="showDateTime">Show Current Date and Time</button>
+
+    <script>
+        $(document).ready(function() {
+            $("#showDateTime").click(function() {
+                let currentDateTime = new Date();
+                let formattedDateTime = currentDateTime.toLocaleString(); // Formats the date and time
+                alert("Current Date and Time: " + formattedDateTime);
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+#normaldt
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Date and Time</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <button id="showDateTime">Show Current Date and Time</button>
+    <p id="dateTime"></p>
+
+    <script>
+        $(document).ready(function() {
+            $("#showDateTime").click(function() {
+                let currentDateTime = new Date();
+                let formattedDateTime = currentDateTime.toLocaleString(); // Formats the date and time
+                $("#dateTime").text(formattedDateTime);
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+#hello september
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello SEPTEMBERRRRR</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <button id="myButton">Click Me</button>
+    <p id="message"></p>
+
+    <script>
+        $(document).ready(function() {
+            $("#myButton").click(function() {
+                $("#message").text("Hello SEPTEBER");
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+#countdown
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #countdown {
+            font-size: 2em;
+            margin: 20px 0;
+        }
+        .unit {
+            display: inline-block;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>Countdown to Event</h1>
+<div id="countdown">
+    <div class="unit" id="days">00</div> Days
+    <div class="unit" id="hours">00</div> Hours
+    <div class="unit" id="minutes">00</div> Minutes
+    <div class="unit" id="seconds">00</div> Seconds
+</div>
+<script>
+$(document).ready(function() {
+    const eventDate = new Date("2024-12-31T23:59:59").getTime();
+    const countdownFunction = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = eventDate - now;
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        $("#days").text(String(days).padStart(2, '0'));
+        $("#hours").text(String(hours).padStart(2, '0'));
+        $("#minutes").text(String(minutes).padStart(2, '0'));
+        $("#seconds").text(String(seconds).padStart(2, '0'));
+        if (distance < 0) {
+            clearInterval(countdownFunction);
+            $("#countdown").html("<h2>The event has started!</h2>");
+        }    }, 1000);});
+</script></body></html>
+
+#fadeout
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fade Out Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+    #myDiv {
+        width: 200px;
+        height: 100px;
+        background-color: #4CAF50;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px auto;
+        }
+        </style></head><body>
+            <div id="myDiv">Hello!</div>
+            <button id="fadeButton">Fade Out</button>
+            <script>
+            $(document).ready(function(){
+                $("#fadeButton").click(function(){
+                    $("#myDiv").fadeOut(1000);
+                    });});
+                    </script>
+                    </body>
+                    </html>
